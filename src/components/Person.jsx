@@ -1,4 +1,3 @@
-
 const Person = ({ name, number, id, del }) => {
     return (
       <div>

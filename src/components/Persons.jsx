@@ -1,6 +1,6 @@
 import Person from './Person'
 
-const Persons = ( {persons, del} ) => {
+const Persons = ({ persons, del }) => {
     return (
     <ul>
         {persons.map(person => 

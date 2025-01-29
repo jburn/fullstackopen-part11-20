@@ -1,13 +1,16 @@
-require('dotenv').config()
-const express = require('express')
-const morgan = require('morgan')
-const cors = require('cors')
+import dotenv from 'dotenv'
+dotenv.config()
+import express, { static as xStatic , json } from 'express'
+import morgan, { token } from 'morgan'
+import cors from 'cors'
 const app = express()
-const Person = require('./models/person')
+import Person from './models/person.js'
 
-app.use(express.static('build'))
-app.use(express.json())
-morgan.token('body', (request) => JSON.stringify(request.body))
+
+
+app.use(xStatic('build'))
+app.use(json())
+token('body', (request) => JSON.stringify(request.body))
 app.use(morgan('tiny'))
 app.use(cors())
 
