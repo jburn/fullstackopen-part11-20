@@ -35,7 +35,7 @@ const App = () => {
         checkName.number = newNumber
         backendService
           .updatePerson(checkName)
-          .then(response => {
+          .then(() => {
             setNotificationMessage(`Updated number for ${checkName.name}`)
             setTimeout(() => {
               setNotificationMessage(null)
@@ -45,7 +45,7 @@ const App = () => {
     } else {
       backendService
         .addNew(personObject)
-        .then(response => {
+        .then(() => {
           setPersons(persons.concat(personObject));
           setNotificationMessage(`Added ${personObject.name}`);
           setTimeout(() => {
