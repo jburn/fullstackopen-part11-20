@@ -22,16 +22,10 @@
         "front-build": "react-scripts build",
         "front-test": "react-scripts test",
         "front-eject": "react-scripts eject",
-        "back-start": "node index.js",
-        "back-dev": "nodemon index.js",
+        "back-start": "cd backend && node index.js",
+        "back-dev": "cd backend && nodemon index.js",
         "back-test": "echo \\\"Error: no test specified\\\" && exit 1",
         "lint": "eslint ."
-    },
-    "eslintConfig": {
-        "extends": [
-        "react-app",
-        "react-app/jest"
-        ]
     },
     "browserslist": {
         "production": [
