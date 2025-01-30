@@ -7,14 +7,14 @@ const app = express()
 import Person from './models/person.js'
 
 
-app.use(xStatic('build'))
+app.use(xStatic('dist'))
 app.use(json())
 token('body', (request) => JSON.stringify(request.body))
 app.use(morgan('tiny'))
 app.use(cors())
 
 
-app.get('/', (request, response) => {
+app.get('/hello', (request, response) => {
   response.send('<h1>Hello World!</h1>')
 })
 
@@ -102,7 +102,7 @@ const errorHandler = (error, request, response, next) => {
 app.use(errorHandler)
 
 if (process.env.NODE_ENV !== 'test') {
-  const PORT = process.env.PORT
+  const PORT = process.env.PORT || 3001
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
   })
