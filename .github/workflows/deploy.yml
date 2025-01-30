@@ -25,10 +25,10 @@ jobs:
         run: npm run test:frontend
       - name: Test backend
         run: npm run test:backend
-      #- name: Install Playwright Browsers
-      #  run: npx playwright install --with-deps
-      #- name: Test e2e
-      #  run: npx playwright test
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+      - name: Test e2e
+        run: cross-env MONGODB_URI=${{ secrets.MONGODB_URI }} playwright test
       - name: Deploy
         run: flyctl deploy --remote-only
         env:
