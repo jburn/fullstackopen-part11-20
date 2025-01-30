@@ -6,7 +6,6 @@ import cors from 'cors'
 const app = express()
 import Person from './models/person.js'
 
-
 app.use(xStatic('dist'))
 app.use(json())
 token('body', (request) => JSON.stringify(request.body))
