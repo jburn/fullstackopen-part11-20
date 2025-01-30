@@ -42,7 +42,7 @@ jobs:
         with:
           text: New version deployed
           severity: info
-          details: Deployment success!
+          description: Deployment success!
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
       - name: Discord notify (failure)
         uses: rjstone/discord-webhook-notify@v1.0.0
@@ -50,8 +50,9 @@ jobs:
         with:
           text: Build failed 
           severity: error
-          details: Deployment failed!
-          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }} 
+          username: jburn/GitHub
+          description: Build failed,,,
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
   tag_release:
     needs: [deployment]
     runs-on: ubuntu-20.04
