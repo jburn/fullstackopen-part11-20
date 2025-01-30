@@ -11,8 +11,8 @@
     "test:backend": "cross-env NODE_ENV=test jest --testEnvironment=node backend/",
     "test:e2e": "playwright test",
     "preview": "vite preview",
-    "server": "node backend/index.js",
-    "start": "concurrently \"npm run dev\" \"npm run server\""
+    "start": "cross-env NODE_ENV=production node backend/index.js",
+    "start:concurrent": "concurrently \"npm run dev\" \"npm run server\""
   },
   "dependencies": {
     "axios": "^1.7.9",
