@@ -7,8 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "test:frontend": "cross-env NODE_ENV=test jest src/",
-    "test:backend": "cross-env NODE_ENV=test jest backend/",
+    "test:frontend": "cross-env NODE_ENV=test jest --testEnvironment=jsdom src/",
+    "test:backend": "cross-env NODE_ENV=test jest --testEnvironment=node backend/",
     "preview": "vite preview",
     "server": "node backend/index.js",
     "start": "concurrently \"npm run dev\" \"npm run server\""
@@ -50,7 +50,6 @@
     "vite": "^6.0.5"
   },
   "jest": {
-    "testEnvironment": "jsdom",
     "moduleFileExtensions": [
       "js",
       "jsx"
