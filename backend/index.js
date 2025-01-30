@@ -7,7 +7,6 @@ const app = express()
 import Person from './models/person.js'
 
 
-
 app.use(xStatic('build'))
 app.use(json())
 token('body', (request) => JSON.stringify(request.body))
@@ -102,8 +101,11 @@ const errorHandler = (error, request, response, next) => {
 
 app.use(errorHandler)
 
+if (process.env.NODE_ENV !== 'test') {
+  const PORT = process.env.PORT
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`)
+  })
+}
 
-const PORT = process.env.PORT
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`)
-})
+export default app

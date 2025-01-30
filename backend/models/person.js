@@ -5,16 +5,16 @@ dotenv.config()
 set('strictQuery', false)
 
 const url = process.env.MONGODB_URI
-
-console.log('connecting to', url)
-
-connect(url)
-  .then(() => {
-    console.log('connected to MongoDB')
-  })
-  .catch(error => {
-    console.log('error connecting to MongoDB: ', error.message)
-  })
+if (process.env.NODE_ENV !== 'test') {
+  console.log('connecting to', url)
+  connect(url)
+    .then(() => {
+      console.log('connected to MongoDB')
+    })
+    .catch(error => {
+      console.log('error connecting to MongoDB: ', error.message)
+    })
+}
 
 const personSchema = new Schema({
   name: {
