@@ -50,7 +50,7 @@ jobs:
         with:
           text: Build failed 
           severity: error
-          details: Deployment failed! Commit ${{ github.event.commits[0].url }} by ${{ github.event.commits[0].committer.username }} broke something
+          details: Deployment failed!
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }} 
   tag_release:
     needs: [deployment]
