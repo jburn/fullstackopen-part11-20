@@ -9,6 +9,7 @@
     "lint": "eslint .",
     "test:frontend": "cross-env NODE_ENV=test jest --testEnvironment=jsdom src/",
     "test:backend": "cross-env NODE_ENV=test jest --testEnvironment=node backend/",
+    "test:e2e": "playwright test",
     "preview": "vite preview",
     "server": "node backend/index.js",
     "start": "concurrently \"npm run dev\" \"npm run server\""
@@ -28,9 +29,11 @@
     "@babel/preset-env": "^7.26.7",
     "@babel/preset-react": "^7.26.3",
     "@eslint/js": "^9.17.0",
+    "@playwright/test": "^1.50.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
     "@types/jest": "^29.5.14",
+    "@types/node": "^22.12.0",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "@vitejs/plugin-react": "^4.3.4",
@@ -50,6 +53,9 @@
     "vite": "^6.0.5"
   },
   "jest": {
+    "testPathIgnorePatterns": [
+      "e2e"
+    ],
     "moduleFileExtensions": [
       "js",
       "jsx"

@@ -6,7 +6,7 @@ import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 
 export default [
-  { ignores: ['dist', 'build', 'node_modules'] },
+  { ignores: ['dist', 'build', 'node_modules', 'plawright.config.js'] },
   {
     // frontend
     files: ['src/*.{js,jsx}', '*.js'],
