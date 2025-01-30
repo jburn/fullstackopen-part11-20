@@ -18,6 +18,10 @@ app.get('/hello', (request, response) => {
   response.send('<h1>Hello World!</h1>')
 })
 
+app.get('/health', (request, response) => {
+  response.send('ok')
+})
+
 app.get('/api/persons', (request, response) => {
   Person.find({}).then(persons => {
     response.json(persons)
