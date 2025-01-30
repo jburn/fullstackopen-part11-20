@@ -38,20 +38,23 @@ jobs:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
       - name: Discord notify (success)
         uses: rjstone/discord-webhook-notify@v1.0.0
-        if: success()
+        if:  ${{ github.event_name == 'push' && success() }}
         with:
           text: New version deployed
           severity: info
-          details: Deployment success!
+          description: Deployment success!
+          details: ""
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
       - name: Discord notify (failure)
         uses: rjstone/discord-webhook-notify@v1.0.0
-        if: failure()
+        if:  ${{ github.event_name == 'push' && failure() }}
         with:
-          text: Build failed 
+          text: Deployment failed 
           severity: error
-          details: Deployment failed! Commit ${{ github.event.commits[0].url }} by ${{ github.event.commits[0].committer.username }} broke something
-          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }} 
+          username: jburn/GitHub
+          description: Deployment failed,,,
+          details: ""
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
   tag_release:
     needs: [deployment]
     runs-on: ubuntu-20.04
