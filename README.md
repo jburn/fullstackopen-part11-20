@@ -1,8 +1,3 @@
-# React + Vite
+# Fullstackopen part 11 exercise 20
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+My implementation of a simple GitHub action CI deployment pipeline. Includes the implementation of building, linting, testing, e2e-testing, deployment, release tagging and discord notifications for build status.  
